@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Lucky.ServiceReference1.Producto>
+
+@{
+    ViewBag.Title = "Producto";
+}
+
+<h2>Producto</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Producto", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stock)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stock)
+        </td>
+        <td>
+            <img src="~/Imagenes/edit.gif" />
+            @Html.ActionLink("Editar", "Edit", new { id = item.IdProducto }) |
+            <img src="~/Imagenes/find.gif" />
+            @Html.ActionLink("Detalle", "Details", new { id = item.IdProducto }) |
+            <img src="~/Imagenes/delete.gif" />
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto })
+        </td>
+    </tr>
+}
+
+</table>
